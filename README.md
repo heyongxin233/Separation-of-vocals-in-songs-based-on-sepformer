@@ -25,6 +25,8 @@ pip install -r requirement.txt
 
 你可以通过train代码训练新模型，可以在config/train/train.json，更改训练参数
 
+[MIR-1K数据集](https://pan.baidu.com/s/1Ut0Fe26zqHLm_0wB5PylxQ)，提取码：1234，将其放在data目录下即可
+
 [噪声数据集](https://pan.baidu.com/s/160bOuY39KaFTTr2rjJ6SaQ)，提取码：1234，将其放在data目录下即可，训练时可以选择加噪声这个选项，动态加噪。
 
 你可以通过evaluate代码，去评估你模型的好坏，具体可以在config/test/evaluate.json配置
