@@ -1,0 +1,108 @@
+{
+  "seed": 0,
+
+  "train_dataset":
+  {
+    "train_dir": "data/MIR-1K/train",
+    "batch_size": 1,
+    "sample_rate": 8000,
+    "segment": -1,
+  },
+
+  "validation_dataset":
+  {
+    "validation_dir": "data/MIR-1K/val",
+    "batch_size": 1,
+    "sample_rate": 8000,
+    "segment": -1,
+    "cv_max_len": 8,
+  },
+
+  "train_loader":
+  {
+   "batch_size": 1,
+   "shuffle": true,
+   "num_workers": 0,
+  },
+
+  "validation_loader":
+  {
+    "batch_size": 1,
+    "shuffle": true,
+    "num_workers": 0,
+  },
+
+  "model":
+  {
+    "pertrain": true,
+    "ckptpath":"./checkpoint/finaladdnoise1.pth",
+    "type": "sepformer",
+    "sepformer":
+    {
+      "N": 256,
+      "C": 2,
+      "L": 16,
+      "H": 8,
+      "K": 250,
+      "Global_B": 2,
+      "Local_B": 8,
+    },
+  },
+
+  "train":
+  {
+    "use_cuda": true,
+    "epochs": 100,
+    "half_lr": true,
+    "early_stop": true,
+    "max_norm": 5,
+  },
+
+  "optimizer":
+  {
+    "type": "sgd",
+
+    "sgd":
+    {
+      "lr": 0.05125,
+      "momentum": 0.01,
+      "l2": 0.0,
+    },
+
+    "adam":
+    {
+      "lr": 0.0015,
+      "beta1": 0.9,
+      "beta2": 0.999
+    },
+
+    "sgdp":
+    {
+      "lr":0.002125,
+      "weight_decay":1e-5,
+      "momentum":0.0005,
+      "nesterov":true
+    },
+
+    "adamp":
+    {
+      "lr":0.001,
+      "beta1":0.9,
+      "beta2":0.999,
+      "weight_decay":1e-2,
+    }
+  },
+
+  "save_load":
+  {
+    "save_folder": "./checkpoint/",
+    "checkpoint": true,
+    "continue_from": "",
+    "model_path": "final.pth",
+  },
+
+  "logging":
+  {
+    "print_freq": 1,
+  }
+}
